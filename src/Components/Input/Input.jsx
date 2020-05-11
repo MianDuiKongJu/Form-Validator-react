@@ -4,11 +4,11 @@ import { render } from '@testing-library/react';
 
 const Input = (props) => {
 
-  const{onChange, label = 'Username', type = 'text', id = 'username', placeholder = 'Enter Username', errorMsg = 'Error Message'} = props
+  const{onChange, checkResult="", label = 'Username', type = 'text', id = 'username', placeholder = 'Enter Username', errorMsg = 'Error Message'} = props
   return(
-    <div className="form-control">
+    <div className={`form-control ${checkResult}`}>
       <label htmlFor={ id }>{ label}</label>
-      <input type={ type } id={ id } placeholder={ placeholder} onChange={(e) => onChange(e.target.value, id)} />
+      <input type={ type } id={ id } placeholder={ placeholder } onChange={(e) => onChange(e.target.value, id)} />
       <small>{ errorMsg }</small>
     </div>
   )
